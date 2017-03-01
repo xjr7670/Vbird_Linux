@@ -37,3 +37,55 @@ r 读
 w 更改目录结构列表：新建文件与目录、删除已存在的文件和目录、重命令、转移
 x 是否能进入该目录
 r 读取目录结构，ls
+
+
+## 6.3.1 Linux目录配置标准：FHS
+
+FHS: Filesystem Hirerarchy Standard
+官网：http://www.pathname.com/fhs/
+
+FHS针对目录树架构仅定义三层目录：
+/ root，根目录，与开机系统有关
+/usr (UNIX software resorce) 与软件安装／执行有关
+/var (variable) 与系统动作过程有关
+
+# FHS定义出根目录下应该有下面这些子目录：
+
+/bin   放置单用户维护模式下还能够被操作的命令。这些命令可以被root与一般账号所使用，例如 cat, chmod, chown, date, mv, mkdir, cp, bash等
+/boot  主要为开机会用到的文件，包括Linux内核文件和开机菜单和开机所需的配置文件。
+       Linux kernel 常用的文件名为vmlinuz，如果使用的是grub这个引导装载程序，则还会存在/boot/grub/目录
+/dev   所有设备，包括接口设备，以文件形式保存在这个目录下，访问文件就等于访问设备
+/etc   系统主要的配置文件。一般用户均可查阅，但只有root可以修改。
+       它下面的重要目录有：
+          /etc/init.d/    所有服务的默认启动脚本都放在这里
+          /etc/xinetd.d/  super daemon管理的各项服务的配置文件目录
+          /etc/X11/       与X Window有关的各种配置文件
+/home  系统默认的用户主文件夹
+/lib   开机时会用到的函数库，以及/bin或/sbin下的命令会调用的函数库。/lib/modules/目录放置内核相关的模块（驱动）
+/media 可删除的设备。包括软盘、光盘、DVD等
+/mnt   用于挂载设备
+/opt   第三方软件使用
+/root  系统管理员的主文件夹
+/sbin  开机过程所需要的，包括了开机、修复、还原系统所需的命令，此外还有如fdisk, fsck, ifconfig, init, mkfs等
+/srv   一些网络服务启动后，所需取用的数据目录
+/tmp   临时放置文件
+
+
+# 其它的一些重要目录
+
+/lost+found 使用标准的ext2/ext3文件系统格式才会产生，目的在于当文件系统发生错误时，将一些丢失的片段放置在该目录下。
+/proc  本身是一个虚拟文件系统。它放置的数据都是在内存当中
+/sys   和/proc相似，主要记录与内核相关的信息
+
+/proc和/sys不占用硬盘空间
+
+# /var目录下的一些重要的子目录
+
+/var/cache 应用程序运行过程中产生的一些临时文件
+/var/lib   程序执行过程中需要用到的数据放置的目录。如MySQL的数据库文件放置在/var/lib/mysql/
+/var/lock/ 设备锁
+/var/log/  登录文件放置的目录，如/var/log/messages, /var/log/wtmp（记录登录者信息）
+/var/run/  程序或服务启动后的PID放置处
+/var/spool/ 队列数据
+
+
