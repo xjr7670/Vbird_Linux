@@ -76,3 +76,21 @@ ZZ     如果文件没有更改，则不保存退出。否则保存退出
 
 :set nu   显示行号
 :set nonu 不显示行号    
+
+
+:files 显示目前vim已打开的所有文件
+
+
+// 在shell下利用iconv命令可以对指定文件进行指定编码格式进行转码操作
+iconv 语法：
+
+  iconv -f 原本编码 -t 新编码 filename [-o newfile]
+
+--list 列出iconv支持的语系数据
+-f     from 后接原本的编码格式
+-t     to 后接新的编码格式
+-o file  如果要保留原本的文件。可以使用-o 新文件名来保存为新文件
+
+// 在shell下使用file命令可以查看文件信息
+
+
