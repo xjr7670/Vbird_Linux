@@ -72,7 +72,7 @@ ZZ     如果文件没有更改，则不保存退出。否则保存退出
 :w filename  将编辑的数据保存为另一个文件
 :r filename  将另一个文件读入当前编辑文件中
 :n1, n2 w filename 将n1 到n2的内容保存成filename 文件
-:! command 暂时离开vim到命令行模式下执行command的显示结果。例如 :! ls /home 即可在vim当中查看/home下面以ls输出的文件信息
+:! command 暂时离开vim到命令行模式下执行command的显示结果。例如 :! ls /home 即可在vim当中查看/home下面以ls输出的文件信息  // 这个命令目前在fedora-24下的vim，无效
 
 :set nu   显示行号
 :set nonu 不显示行号    
