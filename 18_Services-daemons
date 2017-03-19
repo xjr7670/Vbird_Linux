@@ -1,0 +1,11 @@
+## 管理系统默认服务 chkconfig
+
+chkconfig --list [服务名称]
+chkconfig [--level 0123456] [服务名称] [on|off]
+
+--list  仅将目前的各项服务状态显示出来
+--level 设置某个服务在该level下启动或关闭
+
+## 使用图形界面模式管理系统服务 ntsysv
+
+ntsysv [--level 0123456]
